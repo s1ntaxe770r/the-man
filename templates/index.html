@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo</title>
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Add a new task </h1>
+    <form class="form-group" action="/" method="POST">
+		<div class="input-group mb-2">
+  <input type="text" class="form-control" placeholder="insert" name="task">
+  <div class="input-group-append">
+    <button class="btn btn-lg btn-outline-dark" type="button" id="button-addon2">Button</button>
+  </div>
+</div>
+</form>
+	</div>
+
+
+	<section>
+	<div class="card-deck" style="gap:1;">
+	<div class="row">
+ 
+
+{% for todo in todos %}
+
+ <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Todo</h5>
+        <p class="card-text">{{ todo.task }} </p>
+        <a href="#" class="btn btn-primary">Done</a>
+      </div>
+      <div class="card-footer text-muted">{{ todo.created }}
+  </div>
+    </div>
+  </div>
+
+ {% endfor %}
+
+
+</div>
+</div>
+
+
+</section>
+
+</body>
+</html>
