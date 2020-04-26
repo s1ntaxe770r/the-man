@@ -2,16 +2,17 @@
 <html>
 <head>
 	<title>Todo</title>
-	<link rel="stylesheet" type="text/css" href="/static/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.css') }}">
+
 </head>
-<body>
-	<div class="container">
-		<h1>Add a new task </h1>
-    <form class="form-group" action="/" method="POST">
+<body style="background:#ADC2B5">
+	<div class="container" style="margin-top:3em;">
+		<h1 class="text-center" style="font-size:4em; font-family:helvatica">Add a new task </h1>
+    <form class="form-group" action="{{ url_for('index') }} " method="POST">
 		<div class="input-group mb-2">
-  <input type="text" class="form-control" placeholder="insert" name="task">
+  <input type="text" class="form-control" placeholder="insert" name="task" required minlength="10" max="80">
   <div class="input-group-append">
-    <button class="btn btn-lg btn-outline-dark" type="button" id="button-addon2">Button</button>
+ <button class="btn btn-lg btn-outline-dark" type="submit" id="button-addon2">Add</button> 
   </div>
 </div>
 </form>
@@ -19,18 +20,20 @@
 
 
 	<section>
-	<div class="card-deck" style="gap:1;">
+  <div class="container">
+	<div class="card-deck">
 	<div class="row">
  
 
 {% for todo in todos %}
-
  <div class="col-sm-6">
-    <div class="card">
+    <div class="card" style="width: 28rem; border: #829D93; margin-top:3.6em;" >
       <div class="card-body">
-        <h5 class="card-title">Todo</h5>
-        <p class="card-text">{{ todo.task }} </p>
-        <a href="#" class="btn btn-primary">Done</a>
+        <h5 class="card-title" style="font-family:helvatica;">Todo</h5>
+        <p class="card-text" style="font-size:3em;">{{ todo.task }} </p>
+        <form method="POST" action="{{ url_for('delete') }}">
+        <input type="hidden" value="{{todo.task }}" name="task">
+        <button type="submit" class="btn btn-lg btn-outline-dark">complete</button>
       </div>
       <div class="card-footer text-muted">{{ todo.created }}
   </div>
@@ -43,8 +46,16 @@
 </div>
 </div>
 
-
+</div>
 </section>
 
+<footer class="footer mt-auto py-3" style="background:#263238">
+  <div class="container">
+    <a href="gitub.com/s1ntaxe770r"><span class="text-muted"><img src="{{ url_for('static',filename='github.svg') }}"></span></a>
+  </div>
+</footer>
 </body>
 </html>
+
+
+
