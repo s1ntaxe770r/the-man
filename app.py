@@ -47,7 +47,8 @@ def delete():
 
 @app.route('/social',methods=['GET'])
 def social():
-	return redirect('https://github.com/s1ntaxe770r')
+	url  = 'https://github.com/s1ntaxe770r'
+	return redirect(url)
 
 
 if __name__ == '__main__':
