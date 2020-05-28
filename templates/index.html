@@ -27,10 +27,10 @@
 
         {% for todo in todos %}
         <div class="col-sm-6">
-          <div class="card" style="width: 28rem; border: #829D93; margin-top:3.6em; margin-bottom:4.0em;" >
+          <div class="card" style="margin:2rem;">
             <div class="card-body">
               <h5 class="card-title" style="font-family:helvatica;">Todo</h5>
-              <p class="card-text" style="font-size:3em;">{{ todo.task }} </p>
+              <p class="card-text" style="font-size:2em;">{{ todo.task }} </p>
               <form method="POST" action="{{ url_for('delete') }}">
                 <input type="hidden" value="{{todo.task }}" name="task">
                 <button type="submit" class="btn btn-lg btn-outline-dark">complete</button>
@@ -53,13 +53,12 @@
  
 
  
-    <footer class="footer mt-auto py-3" style="background:#263238; position:relative; clear:both; height:7em; margin-top:-200px;">
-      <div class="container">
+    <footer style="background:#263238; height:6em; margin-top:11em; width:100%;" >
         <span class="text-muted">
           <a href="{{ url_for('social') }}"><img src="{{ url_for('static',filename='github.svg') }}">
           </a>
         </span>
-      </div>
+
     </footer>
 
 </body>
