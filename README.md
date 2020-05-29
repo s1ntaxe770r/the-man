@@ -1,5 +1,3 @@
-# Usage 
-
 
 ## make sure you have virtualenv installed if not ` pip3 install virtualenv`
 
